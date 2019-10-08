@@ -41,5 +41,28 @@ class MyArray {
     return lastItem;
   }
 
-
+  /**
+   * Delete element from a specific index of the array
+   * @param {number} index - The array index of the element to delete
+   * @return {*} - the deleted item
+   */
+  del(index) {
+    // if last index do a pop O(1), otherwise
+    // delete at specifed index and rearrange the array
+    const itemToDelete = this.data[index];
+    if (index == (this.length - 1)) {
+      delete this.data[index];
+      this.length--;
+      return itemToDelete;
+    } else {
+      let startIndex = index;
+      let endIndex = (this.length - 1) - index;
+      delete this.data[startIndex];
+      for(startIndex; startIndex <= endIndex; startIndex++) {
+        this.data[startIndex] = this.data[startIndex + 1];
+      }
+      this.pop();
+      return itemToDelete;
+    }
+  }
 }
