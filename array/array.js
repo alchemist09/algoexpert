@@ -19,4 +19,15 @@ class MyArray {
     return this.data[index];
   }
 
+  /**
+   * Append item to end of array
+   * @param {*} item - element to append to the array
+   * @return {number} - Length of array after appending item
+   */
+  push(item) {
+    this.data[this.length] = item;
+    this.length++;
+    return this.length;
+  }
+
 }
