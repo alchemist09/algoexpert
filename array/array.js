@@ -30,4 +30,16 @@ class MyArray {
     return this.length;
   }
 
+  /**
+   * Remove item from end of MyArray
+   * @return {*} - Item removed from end of array
+   */
+  pop() {
+    const lastItem = this.data[this.length - 1];
+    delete this.data[this.length-1];
+    this.length--;
+    return lastItem;
+  }
+
+
 }
