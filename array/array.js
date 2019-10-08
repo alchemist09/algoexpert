@@ -66,3 +66,15 @@ class MyArray {
     }
   }
 }
+
+const arr = new MyArray();
+arr.push('java');
+arr.push('golang');
+arr.push('scala');
+arr.push('ruby');
+console.log(arr.push('php'));
+console.log(arr);
+arr.pop();
+console.log(arr);
+console.log(arr.del(1))
+console.log(arr);
