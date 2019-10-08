@@ -56,10 +56,12 @@ class MyArray {
       return itemToDelete;
     } else {
       let startIndex = index;
-      let endIndex = (this.length - 1) - index;
+      let numberOfItemsToEnd = (this.length-1) - index;
       delete this.data[startIndex];
-      for(startIndex; startIndex <= endIndex; startIndex++) {
+      while(numberOfItemsToEnd > 0) {
         this.data[startIndex] = this.data[startIndex + 1];
+        startIndex++;
+        numberOfItemsToEnd -= 1;
       }
       this.pop();
       return itemToDelete;
