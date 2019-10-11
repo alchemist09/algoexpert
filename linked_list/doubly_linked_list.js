@@ -124,3 +124,10 @@ class DoublyLinkedList {
     return elements;
   }
 }
+
+const dll = new DoublyLinkedList(4);
+dll.append(13);
+dll.prepend(27);
+dll.insert(1, 63);
+dll.remove(2);
+dll.printList();
