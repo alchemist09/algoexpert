@@ -108,4 +108,19 @@ class DoublyLinkedList {
     this.length--;
     return this.printList();
   }
+
+  /**
+   * Prints values of doubly linked list nodes as an array while maintaining 
+   * their relative order
+   * @returns {array} - Array representation of the doubly linked list
+   */
+  printList() {
+    let elements = [];
+    let currNode = this.head;
+    while(currNode !== null) {
+      elements.push(currNode.value);
+      currNode = currNode.next;
+    }
+    return elements;
+  }
 }
