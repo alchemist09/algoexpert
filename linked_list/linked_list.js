@@ -32,4 +32,17 @@ class LinkedList {
     this.length++;
     return this;
   }
+
+  /**
+   * Method to add a node at the begining of linked list
+   * @param {*} value - Value going to the linked list node
+   * @returns An instance of the inked list 
+   */
+  prepend(value) {
+    const newNode = new Node(value);
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+    return this;
+  }
 }
