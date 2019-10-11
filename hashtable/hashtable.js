@@ -35,4 +35,26 @@ class HashTable {
     this.buckets[hashValue].push([key, value]); 
     return this.buckets;
   }
+
+  /**
+   * Lookup a value from the hashtable given a key
+   * @param {string} key - The key to use to lookup a value
+   * @returns {* | boolean} - value that matches given key or false for invalid key
+   */
+  get(key) {
+    let hashValue = this._hash(key);
+    if (this.buckets[hashValue] == undefined) {
+      return "invalid key";
+    }
+    
+    if (this.buckets[hashValue].length == 1) {
+      return this.buckets[hashValue][1];
+    } else {
+      this.buckets[hashValue].forEach(bucket => {
+        if (bucket[0] == key) {
+          return bucket[1];
+        }
+      });
+    }
+  }
 }
