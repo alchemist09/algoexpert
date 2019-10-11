@@ -45,4 +45,19 @@ class LinkedList {
     this.length++;
     return this;
   }
+
+  /**
+   * Traverse to n-th node of the linked list
+   * @param {number} index - A number denoting a specific node within the linke list
+   * @returns {Node} n-th node
+   */
+  traverseToIndex(index) {
+    let counter = 0;
+    let currNode = this.head;
+    while(counter !== index) {
+      currNode = currNode.next;
+      counter++;
+    }
+    return currNode;
+  }
 }
