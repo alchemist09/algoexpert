@@ -75,4 +75,22 @@ class HashTable {
     });
     return arr;
   }
+
+  /**
+   * Fetch all values from the hashtable
+   * @returns {array} - Array containing values from hashtable
+   */
+  values() {
+    let values = [];
+    this.buckets.forEach(bucket => {
+      if (bucket.length == 1) {
+        values.push(bucket[0][1]);
+      } else {
+        bucket.forEach(currElem => {
+          values.push(currElem[1]);
+        });
+      }  
+    });
+    return values;
+  }
 }
