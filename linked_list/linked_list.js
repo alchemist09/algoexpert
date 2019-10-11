@@ -107,4 +107,18 @@ class LinkedList {
     this.length--;
     return this.printList();
   }
+
+  /**
+   * Prints the values from the linked list
+   * @returns {array} - Array with values from the linked list in corresponding order 
+   */
+  printList() {
+    const values = [];
+    let currNode = this.head;
+    while(currNode != null) {
+      values.push(currNode.value);
+      currNode = currNode.next;
+    }
+    return values;
+  }
 }
