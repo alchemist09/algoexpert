@@ -18,4 +18,21 @@ class HashTable {
     }
     return hashValue;
   }
+
+   /**
+   * Method for add a key-value pair to the hashmap
+   * @param {string} key - The key that maps to a value
+   * @param {*} value - The value pointed to by a key
+   * @return {array} - Elements contained in our hashmap 
+   */
+  put(key, value) {
+    let hashValue = this._hash(key);
+    if (!this.buckets[hashValue]) {
+      this.buckets[hashValue] = []
+      this.buckets[hashValue].push([key, value]);
+      return this.buckets;
+    }
+    this.buckets[hashValue].push([key, value]); 
+    return this.buckets;
+  }
 }
