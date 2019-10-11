@@ -61,4 +61,30 @@ class DoublyLinkedList {
     }
     return currNode;
   }
+
+  /**
+   * Insert node at specified index of doubly linked list
+   * @param {number} index - Integer denoting the index of douhbly linked list node
+   * @param {*} - Valiue held by douhbly linked list node
+   * @returns {array} - Array representation of linked list
+   */
+  insert(index, value) {
+    if(index == 0) {
+      return this.prepend(value);
+    }
+
+    if(index > this.length) {
+      return this.append(value);
+    }
+
+    let targetNode = this.traverseToIndex(index);
+    let prevNode = targetNode.prev;
+    let newNode = new NodeDll(value);
+    newNode.next = targetNode;
+    newNode.prev = prevNode;
+    prevNode.next = newNode;
+    targetNode.prev = newNode;
+    this.length++;
+    return this.printList();
+  }
 }
