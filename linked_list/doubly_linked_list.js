@@ -87,4 +87,25 @@ class DoublyLinkedList {
     this.length++;
     return this.printList();
   }
+
+  /**
+   * Removes specified node from doubly linked list
+   * @param {number} index - Integer that specifies the node to remove
+   * @returns {array} - Array representation of doubly linked list after removal
+   */
+  remove(index) {
+    if(index == 0) {
+      let nextNode = this.head.next;
+      this.head = nextNode;
+      return this.printList();
+    }
+
+    let targetNode = this.traverseToIndex(index);
+    let prevNode = targetNode.prev;
+    let nextNode = targetNode.next;
+    prevNode.next = nextNode;
+    nextNode.prev = prevNode;
+    this.length--;
+    return this.printList();
+  }
 }
