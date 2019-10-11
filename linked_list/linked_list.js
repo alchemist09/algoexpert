@@ -60,4 +60,29 @@ class LinkedList {
     }
     return currNode;
   }
+
+  /**
+   * Insert a node at a specific index of the linked list
+   * @param {number} index - A number denoting a specific node within the linked list
+   * @param {*} value - Value going to the specific node of the linked list 
+   * @returns {array} An array whose elements match the linked list node values
+   */
+  insert(index, value) {
+    let start = 0;
+    if(index > this.length) {
+      return this.append(value);
+    }
+
+    if(index == 0) {
+      return this.prepend(value);
+    }
+
+    let prevNode = this.traverseToIndex(index-1);
+    let nextNode = prevNode.next;
+    let newNode = new Node(value);
+    prevNode.next = newNode;
+    newNode.next = nextNode;
+    this.length++;
+    return this.printList();
+  }
 }
