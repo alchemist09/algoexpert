@@ -33,4 +33,18 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+
+  /**
+   * Inserts a node the begining of doubly linked list
+   * @param {*} value - Value held by linked list node
+   * @returns {DoublyLinkedList} - An instance of this linked list
+   */
+  prepend(value) {
+    let newNode = new NodeDll(value);
+    this.head.prev = newNode;
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+    return this;
+  }
 }
