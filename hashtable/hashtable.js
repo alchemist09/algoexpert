@@ -57,4 +57,22 @@ class HashTable {
       });
     }
   }
+
+  /**
+   * Fetch the keys of all elements from hashtable
+   * @returns {array} - Array containing keys from hashtable
+   */
+  keys() {
+    let arr = [];
+    this.buckets.forEach(bucket => {
+      if (bucket.length == 1) {
+        arr.push(bucket[0][0]);
+      } else {
+        bucket.forEach(currElem => {
+          arr.push(currElem[0]);
+        });
+      }
+    });
+    return arr;
+  }
 }
