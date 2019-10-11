@@ -121,4 +121,28 @@ class LinkedList {
     }
     return values;
   }
+
+  /**
+   * Reverse the linked list in place
+   */
+  reverse() {
+    if(!this.head.next) {
+      return this.head;
+    }
+    // let currNode = this.head;
+    let first = this.head;
+    this.tail = this.tail;
+    let second = first.next;
+    // let prevNode = null;
+    while(second) {
+      let temp = second.next;
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+    this.head.next = null;
+    // this.head = prevNode;
+    this.head = first;
+    return this;
+  }
 }
