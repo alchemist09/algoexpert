@@ -20,4 +20,17 @@ class DoublyLinkedList {
     this.length = 1;
   }
 
+  /**
+   * Adds node at the end of doubly linked list
+   * @param (*) value - Value held by the linked list node
+   * @returns {DoublyLinkedList} - Returns an instance of this linked list
+    */
+   append(value) {
+    let newNode = new NodeDll(value);
+    newNode.prev = this.tail;
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.length++;
+    return this;
+  }
 }
