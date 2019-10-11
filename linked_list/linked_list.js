@@ -129,20 +129,31 @@ class LinkedList {
     if(!this.head.next) {
       return this.head;
     }
-    // let currNode = this.head;
+    
     let first = this.head;
-    this.tail = this.tail;
+    this.tail = this.head;
     let second = first.next;
-    // let prevNode = null;
+
     while(second) {
       let temp = second.next;
       second.next = first;
       first = second;
       second = temp;
     }
+
     this.head.next = null;
-    // this.head = prevNode;
     this.head = first;
     return this;
   }
 }
+
+const ll1 = new LinkedList(10);
+ll1.append(5);
+ll1.append(16);
+ll1.append(28);
+ll1.prepend(2);
+ll1.insert(3, 9);
+ll1.insert(200, 77);
+ll1.insert(0, 93);
+ll1.reverse();
+ll1.remove(7);
