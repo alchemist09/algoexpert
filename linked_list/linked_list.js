@@ -85,4 +85,26 @@ class LinkedList {
     this.length++;
     return this.printList();
   }
+
+  /**
+   * Remove a specific node from the linked list
+   * @param {number} index - An integer denoting the index of the node in linked list
+   * @returns {array} - An array representing the values in the linked list
+   */
+  remove(index) {
+    if(index > this.length) {
+      return 'Index Out of Range';
+    }
+    if(index == 0) {
+      let nextNode = this.head.next;
+      this.head = nextNode;
+      return this.printList();
+    }
+    let prevNode = this.traverseToIndex(index-1);
+    let targetNode = prevNode.next;
+    let nextNode = targetNode.next;
+    prevNode.next = nextNode;
+    this.length--;
+    return this.printList();
+  }
 }
