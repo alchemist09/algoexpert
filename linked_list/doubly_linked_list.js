@@ -47,4 +47,18 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+
+  /**
+   * Traverse to a specific index of doubly linked list
+   * @returns {NodeDll} - Doubly linked list node
+   */
+  traverseToIndex(index) {
+    let counter = 0;
+    let currNode = this.head;
+    while(counter !== index) {
+      currNode = currNode.next;
+      counter++;
+    }
+    return currNode;
+  }
 }
