@@ -76,3 +76,17 @@ class Stack {
     return this.length === 0;
   }
 }
+
+
+
+
+/**
+ * This class takes an array-based approach to implementing a stack
+ * Pop and push operations are handled at the end of the array
+ */
+
+ class Stack2 {
+   constructor() {
+     this.items = [];
+   }
+ }
