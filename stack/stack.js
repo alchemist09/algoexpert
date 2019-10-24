@@ -123,3 +123,15 @@ class Stack {
     return this;
   }
  }
+
+ const myStack = new Stack();
+myStack.isEmpty();
+myStack.push('google');
+myStack.push('udemy');
+myStack.push('youtube');
+myStack.pop();
+myStack.pop();
+myStack.pop();
+myStack.peek();
+myStack.pop();
+myStack.peek();
