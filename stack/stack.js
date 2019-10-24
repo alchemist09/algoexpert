@@ -86,7 +86,22 @@ class Stack {
  */
 
  class Stack2 {
+   /**
+    * Constructor
+    * Uses an array to hold stack elements
+    */
    constructor() {
      this.items = [];
    }
+
+   /**
+   * Checks what's at the top of the stack
+   * @returns {*} - Item at the top of the stack
+   */
+  peek() {
+    if(this.items.length === 0) {
+      return null;
+    }
+    return this.top[this.items.length - 1];
+  }
  }
