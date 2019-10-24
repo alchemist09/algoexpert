@@ -67,4 +67,12 @@ class Stack {
     this.length++;
     return this;
   }
+
+  /**
+   * Check whether the stack has any item in it
+   * @return {boolean} - True if length of stack is zero, false otherwise
+   */
+  isEmpty() {
+    return this.length === 0;
+  }
 }
