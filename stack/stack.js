@@ -135,3 +135,13 @@ myStack.pop();
 myStack.peek();
 myStack.pop();
 myStack.peek();
+
+
+const stack2 = new Stack2();
+stack2.peek();
+stack2.push('java');
+stack2.push('python');
+stack2.push('ruby');
+stack2.pop();
+stack2.pop();
+stack2.pop();
