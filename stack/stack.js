@@ -30,4 +30,23 @@ class Stack {
   peek() {
     return this.top;
   }
+
+  /**
+   * Removes top most element from stack, reducing the no. of elements in stack by one
+   * @return {Stack} - An instance of this Stack class
+   */
+  pop() {
+    if(!this.top) {
+      return null;
+    }
+
+    if(this.top == this.bottom) {
+      this.bottom = null
+    }
+
+    const holdingPointer = this.top;
+    this.top = this.top.next;
+    this.length--;
+    return this;
+  }
 }
