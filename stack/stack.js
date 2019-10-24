@@ -49,4 +49,22 @@ class Stack {
     this.length--;
     return this;
   }
+
+  /**
+   * Add element to the top of the stack
+   * @returns {Stack} - An instance of this Stack
+   */
+  push(value) {
+    const newNode = new Node(value);
+    if(this.isEmpty()) {
+      this.top = newNode;
+      this.bottom = newNode;
+    } else {
+      const holdingPointer = this.top;
+      this.top = newNode;
+      this.top.next = holdingPointer;
+    }
+    this.length++;
+    return this;
+  }
 }
