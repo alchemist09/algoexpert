@@ -104,4 +104,13 @@ class Stack {
     }
     return this.top[this.items.length - 1];
   }
+
+  /**
+   * Adds an item to the top of stack
+   * @returns {Stack2} - An instance of this stack
+   */
+  push(value) {
+    this.items.push(value);
+    return this;
+  }
  }
