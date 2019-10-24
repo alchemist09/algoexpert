@@ -113,4 +113,13 @@ class Stack {
     this.items.push(value);
     return this;
   }
+
+  /**
+   * Remove item at the top of the stack
+   * @returns {Stack2} - The stack instance
+   */
+  pop() {
+    this.items.pop();
+    return this;
+  }
  }
