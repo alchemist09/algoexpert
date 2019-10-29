@@ -163,6 +163,26 @@ class BinarySearchTree {
           }
           return this;
         }
+
+        // Case 4: currentNode has two children
+        if(currentNode.left && currentNode.right) {
+          let successorNode = currentNode.right;
+          let successorParentNode = currentNode;
+          if(!successorNode.left) {
+            currentNode.value = currentNode.right.value;
+            currentNode.right = currentNode.right.right;
+            return this;
+          }
+
+          while(successorNode.left != null) {
+            successorParentNode = successorNode;
+            successorNode = successorNode.left;
+          }
+
+          currentNode.value = successorNode.value;
+          successorParentNode.left = successorNode.right;
+          return this;
+        }
       }
     }
     
