@@ -207,3 +207,30 @@ const createFromArray = (bst, ordered, low, high) => {
     createFromArray(bst, ordered, mid+1, high)
   }
 }
+
+// creating balanced binary search tree from sorted collection
+const bst = new BinarySearchTree();
+const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+createFromArray(bst, arr, 0, arr.length-1);
+bst.root;
+
+bst.insert(9);
+bst.insert(4);
+bst.insert(6);
+bst.insert(20);
+bst.insert(170);
+bst.insert(15);
+bst.insert(1);
+
+// lookup
+bst.lookup(56);
+bst.lookup(20);
+
+// remove
+bst.remove(20);
+bst.remove(170);
+bst.remove(9);
+// bst.remove(77);
+bst.remove(4);
+bst.remove(1);
+bst.remove(6);
