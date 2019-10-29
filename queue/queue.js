@@ -64,4 +64,12 @@ class Queue {
     this.length--;
     return this;
   }
+
+  /**
+   * Check whether the queue is empty
+   * @returns {boolean} - True if queue is empty, false otherwise
+   */
+  isEmpty() {
+    return this.length === 0;
+  }
 }
