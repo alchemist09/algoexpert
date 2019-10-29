@@ -27,4 +27,22 @@ class Queue {
   peek() {
     return this.first;
   }
+
+  /**
+   * Append an element the queue
+   * @param {*} value - Value to add to the queue
+   * @returns {Queue} - An instance of the queue class
+   */
+  enqueue(value) {
+    const newNode = new Node(value);
+    if(this.length == 0) {
+      this.first = newNode;
+      this.last = newNode;
+    } else {
+      this.last.next = newNode;
+      this.last = newNode;
+    }
+    this.length++;
+    return this;
+  }
 }
