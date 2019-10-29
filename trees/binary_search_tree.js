@@ -1,7 +1,7 @@
 class Node {
   /**
    * Constructor
-   * @param {*} value - Value in a node of the tree
+   * @param {*} value - Key of the BST node
    */
   constructor(value) {
     this.left = null;
