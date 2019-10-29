@@ -185,6 +185,9 @@ class BinarySearchTree {
         }
       }
     }
+
+    // Node node found, return false
+    return false;
     
   }
 }
