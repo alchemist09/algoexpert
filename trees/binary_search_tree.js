@@ -72,4 +72,16 @@ class BinarySearchTree {
     }
     return null;
   }
+
+  /**
+   * Lookup node with minimum key
+   * @returns {Node} - The node with the least key in BST
+   */
+  getMinNode(node) {
+    if(!node) { node = this.root }
+    while(node) {
+      node = node.left;
+    }
+    return node;
+  }
 }
