@@ -73,3 +73,15 @@ class Queue {
     return this.length === 0;
   }
 }
+
+const q1 = new Queue();
+q1.enqueue('tom');
+q1.enqueue('mary');
+q1.enqueue('peter');
+q1.enqueue('jane');
+q1.enqueue('simon');
+// q1.dequeue();
+// q1.dequeue();
+// q1.dequeue();
+// q1.peek();
+// q1.isEmpty()
