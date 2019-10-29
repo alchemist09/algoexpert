@@ -191,3 +191,19 @@ class BinarySearchTree {
     
   }
 }
+
+/**
+ * Create a Binary Search Tree from sorted Array
+ * @param {BinarySearchTree} bst 
+ * @param {array} ordered - The sorted collection
+ * @param {number} low - leftmost marker of the sorted collection
+ * @param {number} high - rightmost marker of the sorted collection
+ */
+const createFromArray = (bst, ordered, low, high) => {
+  if(low <= high) {
+    let mid = Math.floor((low + high) / 2);
+    bst.insert(ordered[mid]);
+    createFromArray(bst, ordered, low, mid-1);
+    createFromArray(bst, ordered, mid+1, high)
+  }
+}
