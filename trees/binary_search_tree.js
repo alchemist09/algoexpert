@@ -96,4 +96,31 @@ class BinarySearchTree {
     }
     return node;
   }
+
+  /**
+   * Delete a node from the BST
+   * @param {number} value - The key of target node to Delete
+   * @returns {BinarySearchTree | boolean} - An instance of the BST after deletion of the node of false if node is not found
+   */
+  remove(value) {
+    if(!this.root) {
+      return false
+    }
+
+    let parentNode = null;
+    let currentNode = this.root;
+
+    while(currentNode) {
+      if(value < currentNode.value) {
+        parentNode = currentNode;
+        currentNode = currentNode.left
+      } else if(value > currentNode.value) {
+        parentNode = currentNode;
+        currentNode = currentNode.right;
+      } else {
+
+      }
+    }
+    
+  }
 }
