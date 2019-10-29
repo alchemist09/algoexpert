@@ -84,4 +84,16 @@ class BinarySearchTree {
     }
     return node;
   }
+
+  /**
+   * Lookup node with maximum key
+   * @returns {Node} - The node with the greatest key in BST
+   */
+  getMaxNode(node) {
+    if(!node) { node = this.root }
+    while(node) {
+      node = node.right;
+    }
+    return node;
+  }
 }
