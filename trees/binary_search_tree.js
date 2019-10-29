@@ -49,4 +49,27 @@ class BinarySearchTree {
     }
     return this;
   }
+
+  /**
+   * Search for an item in the BST
+   * @param {number} value - The target key to look for in BST
+   * @returns {Node|null} - Returns node with matching key if found, null otherwise
+   */
+  lookup(value) {
+    if(!this.root) {
+      return false;
+    }
+
+    let current = this.root;
+    while(current) {
+      if(value === current.value) {
+        return current;
+      } else if(value < current.value) {
+        current = current.left;
+      } else if(value > current.value) {
+        current = current.right;
+      }
+    }
+    return null;
+  }
 }
