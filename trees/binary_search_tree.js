@@ -147,6 +147,22 @@ class BinarySearchTree {
           }
           return this;
         }
+
+        // Case 3: currentNode has right child but no left child
+        if(currentNode.right && !currentNode.left) {
+          if(currentNode == this.root) {
+            this.root = currentNode.right;
+            currentNode.right = null;
+            return this;
+          }
+
+          if(parentNode.left === currentNode) {
+            parentNode.left = currentNode.right;
+          } else {
+            parentNode.right = currentNode.right;
+          }
+          return this;
+        }
       }
     }
     
