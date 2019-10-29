@@ -45,4 +45,23 @@ class Queue {
     this.length++;
     return this;
   }
+
+  /**
+   * Remove first element from queue
+   * @returns {Queue} - An instance of the queue with previously second element in 
+   *                    place of the first
+   */
+  dequeue() {
+    if(!this.first) {
+      return null;
+    }
+
+    if(this.first == this.last) {
+      this.last = null;
+    }
+    const prevHead = this.first;
+    this.first = this.first.next;
+    this.length--;
+    return this;
+  }
 }
