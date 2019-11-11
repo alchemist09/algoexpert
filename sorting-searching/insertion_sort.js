@@ -12,3 +12,17 @@ function insertionSort(array) {
     array[position] = currentValue;
   }
 }
+
+function insertionSort2(array) {
+  var length = array.length, temp, j;
+  for(var i=1; i < length; i++) {
+    j=i;
+    temp = array[i];
+    while(j>0 && array[j-1] > temp) {
+      array[j] = array[j-1];
+      j--;
+    }
+    array[j] = temp;
+  }
+  return array
+}
