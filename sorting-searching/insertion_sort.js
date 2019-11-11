@@ -47,3 +47,6 @@ function insertionSort3(array) {
     }
 	}
 }
+
+insertionSort3(numbers);
+console.log(numbers);
