@@ -19,3 +19,6 @@ function binarySearchIterative(arr, targert) {
   }
   return false;
 }
+
+const numbers = [2, 6, 9, 13, 16, 23, 44, 51, 65, 77, 81, 91, 144];
+console.log(binarySearchIterative(numbers, 37));
