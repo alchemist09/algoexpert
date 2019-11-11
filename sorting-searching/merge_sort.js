@@ -16,3 +16,35 @@ function mergeSort (array) {
     mergeSort(right)
   )
 }
+
+function merge(left, right){
+  let i=0; j=0; result = [];
+  while(i < left.length && j < right.length) {
+    if(left[i] < right[j]) {
+      result.push(left[i]);
+      i++;
+    } else if(left[i] > right[j]) {
+      result.push(right[j]);
+      j++;
+    } else {
+      // left[i] === right[j]
+      Array.prototype.push.apply(result, [left[i], right[j]]);
+      i++;
+      j++;
+    }
+  }
+
+  // Put any remaining items from left into result
+  while(i < left.length) {
+    result.push(left[i]);
+    i++;
+  }
+
+  // Put any remaining items from right into result
+  while(j < right.length) {
+    result.push(right[j]);
+    j++;
+  }
+
+  return result;
+}
