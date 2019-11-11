@@ -34,3 +34,7 @@ function partition(array, low, high) {
   array[rightMark] = pivotValue;
   return rightMark;
 }
+
+const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+quickSort(numbers, 0, numbers.length - 1);
+console.log(numbers);
