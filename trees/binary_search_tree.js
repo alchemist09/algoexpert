@@ -213,6 +213,29 @@ class BinarySearchTree {
     }
     return list;
   }
+
+  /**
+   * Level order traversal using a recursive approach
+   * @param {array} queue - An array acting as a queue that holds current node and its children during traversal
+   * @param {array} list - Final array whose elements represent order in which tree nodes were traversed
+   * @returns {array} - Array representing order of tree traversal
+   */
+  BreadthFirstSearchR(queue, list) {
+    if (!queue.length) {
+      return list;
+    }
+    const currentNode = queue.shift();
+    list.push(currentNode.value);
+    
+    if (currentNode.left) {
+      queue.push(currentNode.left);
+    }
+    if (currentNode.right) {
+      queue.push(currentNode.right);
+    }
+    
+    return this.BreadthFirstSearchR(queue, list);
+  }
 }
 
 /**
