@@ -256,6 +256,16 @@ class BinarySearchTree {
   DFTPostOrder(){
     return traversePostOrder(this.root, []); 
   }
+
+  /**
+   * Helpder method for In-order traversal of BST
+   * @param {string} currentNode - Node from where to begin the tree traversal
+   * @param {array} list - List to hold visited nodes during traversal
+   * @returns {array} - Array representing order in which the tree nodes were visited
+   */
+  DFTInOrder(){
+    return traverseInOrder(this.root, []);
+  } 
 }
 
 /**
