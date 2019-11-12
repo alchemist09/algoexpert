@@ -121,3 +121,5 @@ graph.addEdge('B', 'F');
 graph.addEdge('E', 'I');
 
 // graph.showConnections();
+graph.BFS('E');
+graph.DFS('B');
