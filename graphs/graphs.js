@@ -84,6 +84,24 @@ class Graph {
       });
     }
   }
+
+  /**
+   * Depth-first traversal of graph
+   * @param {string | object} s - Source vertex from where to start traversal from 
+   */
+  DFS(s) {
+    this.marked[s] = true;
+    console.log('marked: ', this.marked);
+    let adjacentNodes = this.getAdjacent(s);
+    // console.log(typeof(adjacentNodes));
+    // console.log(adjacentNodes instanceof Array);
+    for(let node of adjacentNodes) {
+      console.log(node);
+      if(!this.marked[node]) {
+        this.DFS(node);
+      }
+    }
+  }
 }
 
 const graph = new Graph();
