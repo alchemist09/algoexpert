@@ -303,6 +303,23 @@ function traverseInOrder(node, list){
 }
 
 /**
+ * Function that traverses BST using post-order approach
+ * @param {object} node - Tree node from where to begin traversal
+ * @param {array} list - Array to hold nodes as they are being visited
+ * @returns {array} - Array whose elements represent order in which nodes were visited
+ */
+function traversePostOrder(node, list){
+  if(node.left) {
+    traversePostOrder(node.left, list);
+  }
+  if(node.right) {
+    traversePostOrder(node.right, list);
+  }
+  list.push(node.value);
+  return list;
+}
+
+/**
  * Create a Binary Search Tree from sorted Array
  * @param {BinarySearchTree} bst 
  * @param {array} ordered - The sorted collection
