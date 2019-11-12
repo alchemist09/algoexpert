@@ -269,6 +269,23 @@ class BinarySearchTree {
 }
 
 /**
+ * Function that traverses BST in a pre-order way
+ * @param {object} node - Tree node from where to begin traversal
+ * @param {array} list - Array to hold nodes as they are being visited
+ * @returns {array} - Array whose elements represent order in which nodes were visited
+ */
+function traversePreOrder(node, list) {
+  list.push(node.value);
+  if(node.left) {
+    traversePreOrder(node.left, list);
+  }
+  if(node.right) {
+    traversePreOrder(node.right, list);
+  }
+  return list;
+}
+
+/**
  * Create a Binary Search Tree from sorted Array
  * @param {BinarySearchTree} bst 
  * @param {array} ordered - The sorted collection
