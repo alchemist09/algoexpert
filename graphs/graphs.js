@@ -62,6 +62,28 @@ class Graph {
     }
     return string;
   }
+
+  /**
+   * Breadth First Traversal of a graph
+   * @param {string | object} s - Graph vertex from where to start the traversal 
+   */
+  BFS(s) {
+    let marked = [];
+    let queue  = [];
+    marked[s] = true;
+    queue.push(s);
+    while(queue.length !== 0) {
+      let currNode = queue.shift();
+      console.log(currNode);
+      let adjacentNodes = this.getAdjacent(currNode);
+      adjacentNodes.forEach(n => {
+        if(!marked[n]) {
+          marked[n] = true;
+          queue.push(n);
+        }
+      });
+    }
+  }
 }
 
 const graph = new Graph();
