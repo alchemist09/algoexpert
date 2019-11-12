@@ -335,6 +335,18 @@ const createFromArray = (bst, ordered, low, high) => {
   }
 }
 
+/**
+ * A utility tree traversal function
+ * @param {object} node - Tree node from where to begin the traversal
+ * @returns {object} - An instance of the traversed tree
+ */
+function traverse(node) {
+  const tree = { value: node.value };
+  tree.left = node.left === null ? null : traverse(node.left);
+  tree.right = node.right === null ? null : traverse(node.right);
+  return tree;
+}
+
 // creating balanced binary search tree from sorted collection
 const bst = new BinarySearchTree();
 const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
