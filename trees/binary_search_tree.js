@@ -349,6 +349,12 @@ bst.insert(170);
 bst.insert(15);
 bst.insert(1);
 
+console.log('BFS', tree.BreadthFirstSearch());
+console.log('BFS', tree.BreadthFirstSearchR([tree.root], []))
+console.log('DFSpre', tree.DFTPreOrder());
+console.log('DFSin', tree.DFTInOrder());
+console.log('DFSpost', tree.DFTPostOrder());
+
 // lookup
 bst.lookup(56);
 bst.lookup(20);
