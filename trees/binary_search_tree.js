@@ -190,6 +190,29 @@ class BinarySearchTree {
     return false;
     
   }
+
+  /**
+   * Level order traversal of binary search tree
+   * @returns {array} - Array containing tree elements in order of traversal
+   */
+  BreadthFirstSearch() {
+    let currentNode = this.root;
+    let list = [];
+    let queue = [];
+    queue.push(currentNode);
+
+    while(queue.length > 0){
+      currentNode = queue.shift();
+      list.push(currentNode.value);
+      if(currentNode.left) {
+        queue.push(currentNode.left);
+      }
+      if(currentNode.right) {
+        queue.push(currentNode.right);
+      }
+    }
+    return list;
+  }
 }
 
 /**
