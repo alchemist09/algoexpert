@@ -20,4 +20,16 @@ class Graph {
     this.numberOfNodes++;
     return this;
   }
+
+  /**
+   * Method to add an edge between two vertices in the graph
+   * @param {string | object} node1 - A vertex in the graph
+   * @param {string | object} node2 - A vertex in the graph
+   * @returns {object} - An instance of the graph class
+   */
+  addEdge(node1, node2) {
+    this.adjacencyList.get(node1).push(node2);
+    this.adjacencyList.get(node2).push(node1);
+    return this;
+  }
 }
