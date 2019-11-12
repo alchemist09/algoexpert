@@ -32,4 +32,16 @@ class Graph {
     this.adjacencyList.get(node2).push(node1);
     return this;
   }
+
+  /**
+   * Get all nodes connected to a particular vertex
+   * @param {string | object} - Graph vertex for which to fetch adjacent nodes
+   * @returns {array | undefined} - List of vertices connected to this vertex or                                undefined
+   */
+  getAdjacent(node) {
+    if(this.vertices.indexOf(node) != -1) {
+      return this.adjacencyList.get(node);
+    }
+    return undefined;
+  }
 }
