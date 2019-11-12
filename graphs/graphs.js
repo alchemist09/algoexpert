@@ -44,4 +44,22 @@ class Graph {
     }
     return undefined;
   }
+
+  /**
+   * Shows the connection between various vertices
+   * @returns {string} - Adjacency list map of entire graph
+   */
+  showConnections() {
+    let string = "";
+    for(let i=0; i < this.vertices.length; i++) {
+      string += this.vertices[i];
+      string += " ---> ";
+      let adjacentNodes = this.adjacencyList.get(this.vertices[i]);
+      for(let j=0; j < adjacentNodes.length; j++) {
+        string += ' ' + adjacentNodes[j] + ' ';
+      }
+      string += "\r\n";
+    }
+    return string;
+  }
 }
