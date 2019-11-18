@@ -51,3 +51,8 @@ function fibonacciMaster2(n) {
   }
   return result.pop();
 }
+
+const fasterFib = fibonacciMaster();
+console.log('DP', fasterFib(10));
+console.log('Calculations', calculations);
+console.log('DP2', fibonacciMaster2(10));
