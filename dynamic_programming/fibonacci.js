@@ -38,3 +38,16 @@ function fibonacciMaster() {
     }
   }
 }
+
+/**
+ * Compute fibonacci number using Bottom-up approach Dynamic Programming
+ * @param {number} n - The n-th fibonacci sequence
+ * @returns {number} - Value of n-th fibonacci sequence
+ */
+function fibonacciMaster2(n) {
+  let result = [0, 1];
+  for(let i=2; i <= n; i++) {
+    result.push(result[i-1] + result[i-2]);
+  }
+  return result.pop();
+}
