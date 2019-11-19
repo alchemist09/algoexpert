@@ -119,3 +119,5 @@ function createCache(n) {
   }
   return arr;
 }
+
+let cache = createCache(4);
