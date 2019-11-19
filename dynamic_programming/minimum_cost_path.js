@@ -181,3 +181,29 @@ function calculateMinCost2(s, d) {
  * Using this approach we end up with a runtime of O(n^2) and O(n) space
  * 
  */
+
+ /**
+  * Calculate minimum cost path between two stations using dynamic programmin
+  * @param {array} costArr - 2D array that defines cost between two stations
+  * @param {*} n - The n-th station from starting point
+  * @returns numebr - The minimum cost between two stations
+  */
+function calculateMinimumCost3(costArr, n) {
+  // costArr is the two-dimensional array representing cost between two stations
+  // n is the n-th station
+  // minCost[i] is the minimum cost from station-0 to station-i
+
+  let minCost = new Array(n);
+  minCost[0] = 0;
+  minCost[1] = costArr[0][1];
+
+  for(let i=2; i < n; i++) {
+    minCost[i] = costArr[0][i];
+    for(j=1; j < i; j++) {
+      if(minCost[i] > minCost[j] + costArr[j][i]) {
+        minCost[i] = minCost[j] + costArr[j][i];
+      }
+    }
+  }
+  return minCost[n-1];
+}
