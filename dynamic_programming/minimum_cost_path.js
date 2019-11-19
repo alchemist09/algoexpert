@@ -88,3 +88,18 @@ function calculateMinCost(s, d) {
   }
   return minCost;
 }
+
+/**
+ *  USING MEMOIZATION TO FIND MINIMUM COST
+ * 
+ * Take a two-dimensional array of size N * N to store minimum cost of travelling
+ * between two stations
+ * 
+ * let cache = [][]
+ * 
+ * Once minimum cost is computed for travelling from station-s to station-d, this 
+ * value is stored in cache[s][d]. Next time when the function is called with the 
+ * same parameters (to compute the minimum cost from station-s to station-d), we 
+ * do not compute the minimum cost again and just return the minimum cost stored in
+ * cache[s][d] in constant time O(1). 
+ */
