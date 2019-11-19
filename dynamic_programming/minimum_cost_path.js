@@ -121,3 +121,24 @@ function createCache(n) {
 }
 
 let cache = createCache(4);
+
+function calculateMinCost2(s, d) {
+  if(s == d || s == d-1) {
+    return cost2[s][d];
+  }
+
+  // Enter only if value is not yet computed
+  if(cache[s][d] == 0) {
+    // Code similar to recursive version
+    let minCost = cost2[s][d];
+    for(let i=s+1; i < d; i++) {
+      let temp = calculateMinCost2(s, i) + calculateMinCost2(i, d);
+      if(temp < minCost) {
+        minCost = temp;
+      }
+    }
+    // store minCost in cache
+    cache[s][d] = minCost;
+  }
+  return cache[s][d];
+}
