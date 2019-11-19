@@ -142,3 +142,42 @@ function calculateMinCost2(s, d) {
   }
   return cache[s][d];
 }
+
+/**
+ *    USING BOTTOM-UP DYNAMIC PROGRAMMING APPROACH TO CALCULATE THE MINIMUM COST
+ * 
+ * This approach first calculates the minimum cost for station-0, then station-1, 
+ * then station-2 and so on. The costs are stored in a one-dimensional array 
+ * minCost[n]. Minimum cost to reach station-0 is zero, since we are already there.
+ *    
+ *     minCost[0] = 0
+ * 
+ * Minimum cost to reach station-1 is minCost[1] = cost[0][1], since that's the
+ * only way to reach station-1.
+ * 
+ *    minCost[1] = cost[0][1]
+ * 
+ * Minimum cost to reach station-2 is minimum of below two values, (Either go 
+ * directly to station-2 or take a break at station-1 then proceed from station-1
+ * to station-2).
+ * 
+ *    1. minCost[0] + cost[0][2]
+ *    2. minCost[1] + cost[1][2]
+ * 
+ * Note that minCost[i] is a lookup in cache and cost is a lookup in cost array.
+ * Similarly minimum cost to reach station-3 is minimum of below three values,
+ * 
+ *    1. Go to station-3 directly
+ *          minCost[0] + cost[0][3]
+ *    2. Go to station-1, then from there go to station-3 directly
+ *          minCost[1] + cost[1][3]
+ *    3. Go to station-2 (minimum cost already computed) then go to station-3
+ *          minCost[2] + cost[2][3]
+ * 
+ * When we break at station-2, we are using the already computed minimum cost
+ * of going from station-0 to station-2, and adding the actual cost of going directly 
+ * from station-2 to station-3 (observe optimal substructure)
+ * 
+ * Using this approach we end up with a runtime of O(n^2) and O(n) space
+ * 
+ */
