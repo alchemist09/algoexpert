@@ -207,3 +207,7 @@ function calculateMinimumCost3(costArr, n) {
   }
   return minCost[n-1];
 }
+
+calculateMinCost(0, 3);
+calculateMinCost2(0, 3)
+calculateMinimumCost3(cost2, 4)
