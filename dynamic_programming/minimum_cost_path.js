@@ -46,3 +46,13 @@
  * we calculate the minimum cost of moving from 0-i, and then the minimum cost of
  * moving from i to N-1.
  */
+
+
+// two-dimensional array having cost of tickets
+// let cost = [][];
+let cost2 = [
+  [0, 10, 75, 94],
+  [-1, 0, 35, 50],
+  [-1, -1, 0, 80],
+  [-1, -1, -1, 0]
+]
