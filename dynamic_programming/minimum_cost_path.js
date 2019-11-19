@@ -56,3 +56,35 @@ let cost2 = [
   [-1, -1, 0, 80],
   [-1, -1, -1, 0]
 ]
+
+// calculate minimum cost from source(s) to destination(d)
+/**
+ * Brute Force approach of calculating the minimum cost path
+ * @param {number} s - Index denoting starting station
+ * @param {number} d - Index denoting ending station
+ * @returns {number} - Minimum cost of moving between any two stations
+ */
+function calculateMinCost(s, d) {
+  // Base Cases:
+  // 1.) When both stations are the same: if(s==d) { return 0 }
+  // 2.) When s is just before d, then there's only one way of reaching
+  //     d from s: if(s == d-1) { return cost[s][d] }
+  // Both of the above two conditions can be merged into one becasue cost[s][d]
+  // is 0, when s==d
+
+  if(s == d || s == d-1) {
+    return cost2[s][d];
+  }
+
+  let minCost = cost2[s][d];
+  console.log(minCost);
+  // try every intermediate station to find minimum
+  for(let i=s+1; i < d; i++) {
+    let temp = calculateMinCost(s, i) + calculateMinCost(i, d);
+    // console.log(minCost);
+    if(temp < minCost) {
+      minCost = temp;
+    }
+  }
+  return minCost;
+}
