@@ -103,3 +103,19 @@ function calculateMinCost(s, d) {
  * do not compute the minimum cost again and just return the minimum cost stored in
  * cache[s][d] in constant time O(1). 
  */
+
+ /**
+  * Creates cache to avoid re-computations
+  * @param {number} n - No. of stations in the map
+  * @returns {array} - Returns an N x N array used to cache values
+  */
+function createCache(n) {
+  // create array whose size is number of stations
+  let arr = new Array(n);
+  // fill each element within previous array with an array of size n, 
+  // having all items initialized to 0
+  for(let i=0; i < n; i++) {
+    arr[i] = new Array(n).fill(0);
+  }
+  return arr;
+}
