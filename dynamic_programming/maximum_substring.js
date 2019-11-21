@@ -51,6 +51,16 @@ function maxSubStringLength(str) {
 }
 
 /**
+ * The above brute force solution is not an optimal solution since there are 
+ * subproblems and the subproblems are overlapping. For example, sum of digits
+ * from index i to j is already computed while checking for one substring. Then
+ * for another substring (in next loop), we may be computing the sum of digits
+ * from i+1 to j. We are computing this sum all over again when we can reuse the
+ * sum of digits from i to j and subtract str[i] from this sum (constant time 
+ * operation), rather than recomputing the sum from i+1 to j (linear time operation) 
+ */
+
+/**
  * Creates a memoization table to store intermediate values
  * @param {string} str - A string of integer characters
  * @returns {array} - A 2D array initially filled with zeroes
