@@ -108,3 +108,7 @@ function maxSubStringLengthDP(str) {
   }
   return maxLen;
 }
+
+maxSubStringLength('93174420');
+maxSubStringLengthDP("93174420");
+maxSubStringLengthDP("142124");
