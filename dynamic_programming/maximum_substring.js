@@ -17,7 +17,7 @@
 /**
  * Naive Brute Force Approach 
  * Runtime O(n^3)
- * param {string} str - A string containing integer numbers
+ * @param {string} str - A string containing integer numbers
  * @returns {number} - longest substring which sum of either half is same
  */
 function maxSubStringLength(str) {
@@ -50,3 +50,16 @@ function maxSubStringLength(str) {
   return maxLen;
 }
 
+/**
+ * Creates a memoization table to store intermediate values
+ * @param {string} str - A string of integer characters
+ * @returns {array} - A 2D array initially filled with zeroes
+ */
+function createSumsTable(str) {
+  let length = str.length;
+  let arr = new Array(length);
+  for(let i=0; i < length; i++) {
+    arr[i] = new Array(length).fill(0);
+  }
+  return arr;
+}
