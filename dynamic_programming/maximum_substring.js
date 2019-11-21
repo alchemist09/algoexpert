@@ -73,3 +73,38 @@ function createSumsTable(str) {
   }
   return arr;
 }
+
+/**
+ * Calculating the maximum substring using Dynamic Programming
+ * @param {string} str - String containing integer characters
+ * @returns {number} - Maxumun substring with sums of either half being equal
+ */
+function maxSubStringLengthDP(str) {
+  const n = str.length;
+  let maxLen = 0;
+  const sumTable = createSumsTable(str);
+  
+  // lower diagonal of table is not used since i > j
+  // populate the diagonal values
+  for(let i=0; i < n; i++) {
+    sumTable[i][i] = parseInt(str[i]);
+  }
+  
+  for(let len=2; len <= n; len++) {
+    // pick i and j of current substring
+    for(let i=0; i < n-len+1; i++) {
+      let j = i + len-1;
+      let k = Math.floor(len/2);
+
+      // calculate value of sumTable[i][j]
+      sumTable[i][j] = parseInt(sumTable[i][j-k]) + parseInt(sumTable[j-k+1][j]);
+      console.log(sumTable)
+      // update if 'len' is even, left and right sums are the same
+      // and len is more than maxLen
+      if(len % 2 == 0 && sumTable[i][j-k] == sumTable[j-k+1][j] && len > maxLen) {
+        maxLen = len;
+      }
+    }
+  }
+  return maxLen;
+}
