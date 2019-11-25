@@ -49,3 +49,17 @@ function isInterleaving(A, B, C) {
 
   return (first || second);
 }
+
+/**
+ * Creates a memoization matrix 
+ * @param {number} x - No. of rows in memoization matrix 
+ * @param {number} y - No. of columns in memoization matrix
+ * @returns {array} - 2D array that acts as memoization matrix filled with zeroes 
+ */
+function createMatrix(x, y) {
+  const arr = new Array(x.length + 1);
+  for(let i=0; i < arr.length; i++) {
+    arr[i] = new Array(y.length + 1).fill(0);
+  }
+  return arr;
+}
