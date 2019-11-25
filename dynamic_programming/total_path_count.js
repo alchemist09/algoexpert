@@ -28,3 +28,17 @@ function numOfPaths(m, n) {
   if(m==0 || n==0) { return 1; } // top most row, or leftmost column
   return numOfPaths(m-1, n) + numOfPaths(m, n-1);
 }
+
+/**
+ * Creates memoization matrix
+ * @param {number} x - No. of rows in memoization matrix 
+ * @param {number} y - No. of columns in memoization matrix
+ * @returns {array} - The memoization matrix initialized with zeroes
+ */
+function create2DMatrix(x, y) {
+  const arr = new Array(x);
+  for(let i=0; i <= x; i++) {
+    arr[i] = new Array(y+1).fill(0);
+  }
+  return arr;
+}
