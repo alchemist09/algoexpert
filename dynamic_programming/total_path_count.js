@@ -42,3 +42,33 @@ function create2DMatrix(x, y) {
   }
   return arr;
 }
+
+/**
+ * Bottom-up solution using Dynamic Programming to calculate total
+ * number of ways to reach a target cell in a 2D matrix
+ * 
+ * @param {number} m - No. of rows in matrix
+ * @param {number} n - No. of columns in matrix
+ * @returns {number} - Total count of ways to reach target cell
+ */
+function numOfPathsDP(m, n) {
+  const tbl = create2DMatrix(m, n);
+  tbl[0][0] = 0; // cell(0, 0)
+  // fill top row
+  for(let i=1; i <= n; i++) {
+    tbl[0][i] = 1;
+  }
+
+  // leftmost column 
+  for(let j=1; j <= m; j++) {
+    tbl[j][0] = 1;
+  }
+
+  // fill the rest of the cells
+  for(let i=1; i <= m; i++) {
+    for(let j=1; j <= n; j++) {
+      tbl[i][j] = tbl[i-1][j] + tbl[i][j-1];
+    }
+  }
+  return tbl[m][n];
+}
