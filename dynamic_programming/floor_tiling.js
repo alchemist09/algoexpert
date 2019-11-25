@@ -61,3 +61,16 @@ are:
 
 */
 
+/**
+ * Brute Force implementation of tiling problem
+ * @param {number} n - Length of the floor
+ * @returns {number} - No. of ways to tile specifed floor
+ */
+function countWays(n) {
+  if(n == 0) { return 0; }
+  if(n == 1) { return 1; }
+  if(n == 2) { return 2; }
+  return countWays(n-1) + countWays(n-2)
+}
+
+countWays(5);
