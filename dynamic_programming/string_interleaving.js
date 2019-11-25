@@ -113,3 +113,14 @@ function isInterleavingDP(A, B, C) {
   
   return tbl[A.length][B.length];
 }
+
+const A = 'xyz';
+const B = 'abcd';
+const C = 'xabyczd';
+
+isInterleaving(A, B, C);
+
+const X = 'bcc';
+const Y = 'bbca';
+const Z = 'bbcbcac';
+isInterleavingDP(X, Y, Z);
