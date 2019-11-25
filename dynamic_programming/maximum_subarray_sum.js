@@ -52,3 +52,7 @@ function maxSubArraySum2(arr) {
 
   return maxSumSoFar;
 }
+
+const arr = [-2, -3, 4, -1, -2, 1, 5, -3];
+maxSubArraySum(arr);
+maxSubArraySum2(arr);
