@@ -80,3 +80,37 @@ function createMemoTable(m, n) {
   }
   return arr;
 }
+
+/**
+ * Using bottom-up approach to solve levenshtein algorithm
+ * @param {string} str1 - The first string
+ * @param {string} str2 - The second string
+ * @returns {number} - Minimum no. of operations to convert str1 into str2
+ */
+function editDistanceDP(str1, str2) {
+  const T = createMemoTable(str1.length+1, str2.length+1); 
+  
+  // fill left most column, case where str2 is empty
+  for(let m=0; m <= str1.length; m++) {
+    T[m][0] = m;
+  }
+  
+  // fill top most row, case where str1 is null/empty 
+  for(let n=0; n <= str2.length; n++) {
+    T[0][n] = n;
+  }
+
+  for(let i=1; i <= str1.length; i++) {
+    for(let j=1; j <= str2.length; j++) {
+      if(str1[i] == str2[j]) {
+        T[i][j] = T[i-1][j-1];
+      } else {
+        T[i][j] = Math.min(T[i-1][j],
+                           T[i][j-1],
+                           T[i-1][j-1]) + 1;
+      }
+    }
+  }
+  console.log(T);
+  return T[str1.length][str2.length];
+}
