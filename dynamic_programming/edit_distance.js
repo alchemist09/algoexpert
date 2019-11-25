@@ -33,3 +33,37 @@
 
 */
 
+/**
+ * Brute force solution of Levenshtein algorithm
+ * @param {string} str1 - The first string
+ * @param {string} str2 - The second string
+ * @returns {number} - Minimum no. of operations to convert str1 into str2
+ */
+function editDistance(str1, str2) {
+  // if str1 is empty or null, we need to insert characters of str2
+  if(str1 === null || str1 === "") {
+    return str2.length;
+  }
+
+  // if str2 is empty or null, we need to delete all characters of str1
+  if(str2 === null || str2 === "") {
+    return str1.length;
+  }
+
+  // if first characters of both strings are the same, then ignore it
+  // and find the edit distance between the remaining characters
+  if(str1[0] === str2[0]) {
+    return editDistance(str1.slice(1), str2.slice(1));
+  }
+
+  // find the edit distance of all three operations
+  let d = null, u = null, i = null;
+
+  d = editDistance(str1.slice(1), str2);
+  u = editDistance(str1.slice(1), str2.slice(1));
+  i = editDistance(str1, str2.slice(1));
+
+  // return minimum of the three values + 1
+  return Math.min(d, u, i) + 1;
+}
+
