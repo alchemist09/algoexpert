@@ -60,3 +60,6 @@ function waysToScore2(n) {
     
   return arr[n];
 }
+
+waysToScore(5);
+waysToScore2(9);
