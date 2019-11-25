@@ -72,3 +72,6 @@ function numOfPathsDP(m, n) {
   }
   return tbl[m][n];
 }
+
+numOfPaths(1, 1);
+numOfPathsDP(2, 5);
