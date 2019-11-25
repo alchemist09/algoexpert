@@ -17,3 +17,14 @@
  are already there.
 */
 
+/**
+ * Recursive function with exponential time O(2^n)
+ * @param {number} m - No. of rows in matrix
+ * @param {number} n - No. of column in matrix
+ * @returns {number} - Total count of ways ot reach target cell
+ */
+function numOfPaths(m, n) {
+  if(m==0 && n==0) { return 0; } // cell(0,0)
+  if(m==0 || n==0) { return 1; } // top most row, or leftmost column
+  return numOfPaths(m-1, n) + numOfPaths(m, n-1);
+}
