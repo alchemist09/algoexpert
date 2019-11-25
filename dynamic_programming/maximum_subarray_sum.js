@@ -27,3 +27,28 @@ function maxSubArraySum(arr) {
   }
   return maxSum;
 }
+
+/**
+ * Using Kadane's algorithm
+ * O(n) runtime
+ */
+
+function maxSubArraySum2(arr) {
+  let maxSumEndingHere = 0;
+  let maxSumSoFar = 0;
+  const length = arr.length;
+
+  for(let i=0; i < length; i++) {
+    maxSumEndingHere = maxSumEndingHere + arr[i];
+
+    if(maxSumEndingHere < 0) {
+      maxSumEndingHere = 0;
+    }
+
+    if(maxSumSoFar < maxSumEndingHere) {
+      maxSumSoFar = maxSumEndingHere;
+    }
+  }
+
+  return maxSumSoFar;
+}
