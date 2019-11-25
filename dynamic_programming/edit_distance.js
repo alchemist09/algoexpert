@@ -114,3 +114,8 @@ function editDistanceDP(str1, str2) {
   console.log(T);
   return T[str1.length][str2.length];
 }
+
+editDistanceDP('COMPUTER', 'COMMUTER');
+editDistanceDP('SUNDAY', 'SATURDAY');
+editDistanceDP('ALLURE', 'ANUM');
+editDistanceDP('CAR', 'CAT');
