@@ -67,3 +67,16 @@ function editDistance(str1, str2) {
   return Math.min(d, u, i) + 1;
 }
 
+/**
+ * Creates a memoization table
+ * @param {number} m - No. of rows in memoization table
+ * @param {number} n - No. of columns in memoization table
+ * @returns {array} - Memoization table
+ */
+function createMemoTable(m, n) {
+  const arr = new Array(m);
+  for(let i=0; i < m; i++) {
+    arr[i] = new Array(n).fill(-1);
+  }
+  return arr;
+}
