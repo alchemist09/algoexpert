@@ -44,3 +44,30 @@ function createMemoTable(m, n) {
   }
   return arr;
 }
+
+/**
+ * Recursion with memoization. Polynomial Runtime O(N^k)
+ * @param {string} m 
+ * @param {string} n 
+ * @returns {number} - Length of the longest common subsequence between the two strings
+ */
+function lcsMemo(m, n) {
+  if(m.length == 0 || n.length == 0) {
+    return 0;
+  }
+
+  const T = createMemoTable(m, n);
+
+  // if value is already computed, return it
+  if(T[m.length-1][n.length-1] != -1) {
+    return T[m.length-1][n.length-1];
+  }
+
+  // comparing last character of strings
+  if(m.slice(-1) == n.slice(-1)) {
+    T[m.length-1][n.length-1] = 1 + lcsMemo(m.slice(0, -1), n.slice(0, -1));
+  } else {
+    T[m.length-1][n.length-1] = Math.max(lcsMemo(m.slice(0, -1), n), lcsMemo(m, n.slice(0, -1)));
+  }
+  return T[m.length-1][n.length-1];
+}
