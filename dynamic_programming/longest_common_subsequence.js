@@ -71,3 +71,19 @@ function lcsMemo(m, n) {
   }
   return T[m.length-1][n.length-1];
 }
+
+/**
+ * Creates Dynamic Programming table used to store solutions to 
+ * subproblems as they are computed bottom-up
+ * 
+ * @param {string} m 
+ * @param {string} n 
+ * @returns {array} - 2D array with all elements initialized to zero
+ */
+function createDPTable(m, n) {
+  const arr = new Array(m.length+1);
+  for(let i=0; i < arr.length; i++) {
+    arr[i] = new Array(n.length+1).fill(0);
+  }
+  return arr;
+}
