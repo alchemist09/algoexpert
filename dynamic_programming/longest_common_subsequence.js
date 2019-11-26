@@ -119,3 +119,33 @@ function lcsDP(m, n) {
   
   return T[m.length][n.length];
 }
+
+/**
+ * Print the longest common subsequence between two strings
+ * @param {string} m 
+ * @param {string} n 
+ * @returns {string} - The LCS between m and n
+ */
+function printLCS(m, n) {
+  let len = lcsDP(m, n);
+  const lcs = new Array(len);
+  let i = m.length;
+  let j = n.length;
+  len--;
+  while(i > 0 && j > 0) {
+    // if current character in  m and n are same, include the character
+    if(m[i-1] == n[j-1]) {
+      lcs[len] = m[i-1];
+      i--;
+      j--;
+      len--;
+    } 
+    // go in the direction of the larger value between T[i-1][j] and T[i][j-1]
+    else if(T[i-1][j] > T[i][j-1]) {
+      i--;
+    } else {
+      j--;
+    }
+  }
+  return lcs;
+}
