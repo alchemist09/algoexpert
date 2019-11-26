@@ -10,3 +10,23 @@
  maximal length     
 */
 
+/**
+ * Recursive solution, O(2^N)
+ * @param {string} m - The first string
+ * @param {string} n - The second string
+ * @returns {number} - Length of the longest common subsequence between the two strings
+ */
+function lcsRec(m, n) {
+  // if length of either input string is zero, there's no common subsequence
+  if(m.length == 0 || n.length == 0) {
+    return 0;
+  }
+
+  // case where last character of either substring is same
+  if(m.slice(-1) == n.slice(-1)) {
+    return 1 + lcsRec(m.slice(0, -1), n.slice(0, -1));
+  } else {
+    // if ending characters are not same, return maximum of two recursive calls
+    return Math.max(lcsRec(m.slice(0, -1), n), lcsRec(m, n.slice(0, -1)));
+  }
+}
