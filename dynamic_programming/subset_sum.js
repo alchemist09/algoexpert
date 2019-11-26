@@ -28,3 +28,17 @@ function isSubsetSum(arr, target) {
 
   return isSubsetSum(arr.slice(1), target) || isSubsetSum(arr, target-arr[0]);
 }
+
+/**
+ * Creates memoization matrix for subset sum problem
+ * @param {array} arr - Array of non-negative integers 
+ * @param {number} target - The target sum
+ * @returns {array} - 2D array with rows equal to lenght of array and columns equal to target
+ */
+function createMatrix(arr, target) {
+  const table = new Array(arr.length+1);
+  for(let i=0; i < table.length; i++) {
+    table[i] = new Array(target+1).fill(0);
+  }
+  return table;
+}
