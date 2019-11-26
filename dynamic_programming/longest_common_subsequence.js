@@ -149,3 +149,21 @@ function printLCS(m, n) {
   }
   return lcs;
 }
+
+const m = 'AEBD';
+const n = 'ABCD';
+lcsRec(m, n);
+
+const x = 'ABCDEF';
+const y = 'APQBRF';
+lcsMemo(x, y);
+
+const a = 'ABCDGH';
+const b = 'AEDFHR'; 
+const T = createDPTable(a, b);
+lcsDP(a, b);
+
+const c = 'AGGTAB';
+const d = 'GXTXAYB';
+const T = createDPTable(m, n);
+printLCS(m, n);
