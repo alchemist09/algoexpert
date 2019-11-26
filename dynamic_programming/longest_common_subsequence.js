@@ -30,3 +30,17 @@ function lcsRec(m, n) {
     return Math.max(lcsRec(m.slice(0, -1), n), lcsRec(m, n.slice(0, -1)));
   }
 }
+
+/**
+ * Creates memoization table for LCS problem
+ * @param {string} m 
+ * @param {string} n 
+ * @returns {array} - 2D array use to cache computed values
+ */
+function createMemoTable(m, n) {
+  const arr = new Array(m.length);
+  for(let i=0; i < arr.length; i++) {
+    arr[i] = new Array(n.length).fill(-1);
+  }
+  return arr;
+}
