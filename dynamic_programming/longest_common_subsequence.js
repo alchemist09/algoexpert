@@ -87,3 +87,35 @@ function createDPTable(m, n) {
   }
   return arr;
 }
+
+/**
+ * Bottom-up solution using dynamic programming
+ * @param {string} m 
+ * @param {string} n 
+ * @returns {number} - Length of longest common subsequence between the two strings
+ */
+function lcsDP(m, n) {
+  // T is defined globally so that once populated, it will allow
+  // printing of LCS in another function call
+  T[0][0] = 0;
+  // case where m is empty, first row is all zeroes
+  for(let i=1; i <= n.length; i++) {
+    T[0][i] = 0;
+  }
+  // case where n is empty, first column is all zeroes
+  for(let j=1; j <= m.length; j++) {
+    T[j][0] = 0;
+  }
+
+  for(let i=1; i <= m.length; i++) {
+    for(j=1; j <= n.length; j++) {
+      if(m[i-1] == n[j-1]) {
+        T[i][j] = 1 + T[i-1][j-1];
+      } else {
+        T[i][j] = Math.max(T[i-1][j], T[i][j-1]);
+      }
+    }
+  }
+  
+  return T[m.length][n.length];
+}
