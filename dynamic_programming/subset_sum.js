@@ -73,3 +73,9 @@ function isSubsetSumDP(arr, target) {
 
   return T[arr.length][target];
 }
+
+const arr = [3, 2, 7, 1];
+const X = 6;
+
+isSubsetSum(arr, X);
+isSubsetSumDP(arr, X);
