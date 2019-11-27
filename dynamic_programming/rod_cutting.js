@@ -133,3 +133,8 @@ function cutRodDP2(values, n) {
   
   return arr[values.length][n];
 }
+
+cutRod(price, 4);
+cutRodMemo(price, 4);
+cutRodDP(price, 4);
+cutRodDP2(price, 4);
