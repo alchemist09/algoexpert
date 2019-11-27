@@ -36,3 +36,41 @@ function knapSackRec(capacity, weight, value, n) {
 
   return Math.max(x, y);
 }
+
+/**
+ * Using memoization with recursion to store intermediate results as the
+ * solution is built top-down
+ * 
+ * @param {number} capacity - Maximum capacity of knapsack
+ * @param {array} weight - Array holding weight of each available item
+ * @param {array} value - Array holding value associated with each item
+ * @param {number} n - The number of items available
+ * @return {number} Maximum value that can be fit inside knapsack * 
+ */
+function knapSackMemo(capacity, weight, value, n) {
+  const arr = new Array(n+1);
+  for(let i=0; i < arr.length; i++) {
+    arr[i] = new Array(capacity + 1).fill(0);
+  }
+
+  function KS(capacity, weight, value, n) {
+    if(arr[n][capacity] !== 0) {
+      return arr[n][capacity];
+    }
+
+    if(capacity <= 0 || n <= 0) {
+      return 0;
+    }
+
+    if(weight[n-1] > capacity) {
+      return KS(capacity, weight, value, n-1);
+    }
+
+    let x = value[n-1] + KS(capacity-weight[n-1], weight, value, n-1);
+    let y = KS(capacity, weight, value, n-1);
+    arr[n][capacity] = Math.max(x, y);
+    return arr[n][capacity];
+  }
+  KS(capacity, weight, value, n);
+  return arr[n][capacity];
+}
