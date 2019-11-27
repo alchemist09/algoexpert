@@ -42,3 +42,17 @@
  */
 const price = [0, 1, 5, 8, 9, 10, 17, 17, 20];
 
+/**
+ * Brute Force Recursive Solution
+ * @param {array} values - Prices associated with different rod lengths. 
+ * @param {number} n - Length of the rod
+ * @returns {number} - Maximum value that can be derived from cutting rod of length n
+ */
+function cutRod(values, n) {
+  if(n <= 0) { return 0 }
+  let maxValue = Number.MIN_VALUE;
+  for(let i=1; i <= n; i++) {
+    maxValue = Math.max(maxValue, price[i] + cutRod(values, n-i))
+  }
+  return maxValue;
+}
