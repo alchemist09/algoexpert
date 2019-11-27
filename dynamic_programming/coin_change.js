@@ -31,3 +31,32 @@ function minCoins(S, coins) {
   }
   return numCoins;
 }
+
+/**
+ * Using recursion with memoization to store intermediate results for minCoins(n) calculations
+ * @param {number} S - Amount to be given out in change
+ * @returns {function} - Returns function that actually computes the minimum coins solution
+ */
+function minCoinsMemo(S) {
+  const changeArray = new Array(S+1);
+  changeArray[0] = 0;
+
+  return function mincoins(S, coins) {
+    if(S==0) { return 0; }
+    let numCoins = Number.MAX_VALUE;
+    if(changeArray[S]) {
+      return changeArray[S];
+    }
+    for(let i=0; i < coins.length; i++) {
+      if(coins[i] <= S) {
+        let temp = mincoins(S-coins[i], coins);
+        changeArray[S] = temp + 1;
+        if(temp+1 < numCoins) {
+          numCoins = temp + 1;
+        }
+      }
+    }
+    
+    return changeArray[S];
+  }
+}
