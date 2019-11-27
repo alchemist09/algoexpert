@@ -79,3 +79,55 @@ function eggDropMemo(eggs, floors) {
   drop(eggs, floors);
   return cache[eggs][floors];
 }
+
+/**
+ * Bottom-up implementation of the egg drop solution
+ * Using Dynamic Programming to arrive at the solution\
+ * Runtime O(eggs * floors^2)
+ * Space Complexity O(eggs * floors)
+ * 
+ * @param {number} eggs - The number of eggs to start with
+ * @param {number} floors - The number of floors in the buiding we're dropping eggs from
+ * @return {number} - Minimum no. of drops needed to find breaking floor in worst case
+ */
+function eggDropDP(eggs, floors) {
+  // create cache table and fill every cell in it with maximum possible value
+  const cache = new Array(eggs+1);
+  for(let i=0; i <= eggs; i++) {
+    cache[i] = new Array(floors+1).fill(Number.MAX_VALUE);
+  }
+
+  // if we have zero eggs, the number of drops will always be zero
+  for(let currFloor=0; currFloor <= floors; currFloor++) {
+    cache[0][currFloor] = 0;
+  }
+
+  // if we have one floor the no. of drops will always be 1
+  // if we have zero floors, the no. of drops will be zero
+  for(let i=0; i <= eggs; i++) {
+    cache[i][0] = 0;
+    cache[i][1] = 1;
+  }
+
+  // we'll need j trials for one egg and j floors
+  for(let j=1; j < floors; j++) {
+    cache[1][j] = j;
+  }
+
+  // fill the rest of the floors using optimal substructure property
+  for(let currEggs=2; currEggs <= eggs; currEggs++) {
+    for(let currFloor=2; currFloor <= floors; currFloor++) {
+      // starting from floor 1 to the current floor, we do egg drop attempts at each
+      // intermediate floor to find the minimum no. of drops needed in worst case to // find the breaking floor
+      for(let dropAttempt=1; dropAttempt <= currFloor; dropAttempt++) {
+        let temp = 1 + Math.max(
+          cache[currEggs-1][dropAttempt-1],
+          cache[currEggs][currFloor-dropAttempt]
+        );
+        cache[currEggs][currFloor] = Math.min(cache[currEggs][currFloor], temp);
+      }
+    }
+  }
+  
+  return cache[eggs][floors];
+}
