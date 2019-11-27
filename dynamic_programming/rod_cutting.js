@@ -95,3 +95,41 @@ function cutRodDP(values, n) {
   }
   return maxValues[n];
 }
+
+/**
+ * Dynamic Programming Solution using a 2D Array
+ * @param {array} values - Prices of various rod lengths. Array index represents length of rod
+ * @param {number} n - The length of the rod in question
+ * @returns {number} - Maximum value that can be derived from cutting a rod of length n
+ */
+function cutRodDP2(values, n) {
+  const arr = new Array(values.length + 1);
+  for(let i=0; i < arr.length; i++) {
+    arr[i] = new Array(n+1).fill(Number.MIN_VALUE);
+  }
+
+  // fill top-left cell
+  arr[0][0] = 0
+
+  // fill the first column
+  for(let i=1; i <= values.length; i++) {
+    arr[i][0] = 0;
+  }
+
+  // fill the first row
+  for(let j=1; j <= n; j++) {
+    arr[0][j] = 0
+  }
+
+  for(let i=1; i <= values.length; i++) {
+    for(let j=1; j <= n; j++) {
+      if(j >= i) {
+        arr[i][j] = Math.max(arr[i-1][j], (values[i] + arr[i][j-i]));
+      } else {
+        arr[i][j] = arr[i-1][j];
+      }
+    }
+  }
+  
+  return arr[values.length][n];
+}
