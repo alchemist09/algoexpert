@@ -56,6 +56,14 @@ function lpsDP(str) {
       }
     }
   }
-  
+
   return cache[0][n-1];
 }
+
+const str1 = 'BBABCBCAB';
+const str2 = 'BQADNAB';
+lpsRec(str1);
+lpsRec(str2);
+
+lpsDP('AEACDEAPCR')
+lpsDP('BQADNAB');
