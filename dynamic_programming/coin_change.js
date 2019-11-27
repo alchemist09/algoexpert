@@ -60,3 +60,29 @@ function minCoinsMemo(S) {
     return changeArray[S];
   }
 }
+
+/**
+ * Dynamic Programming Solution
+ * @param {number} S - The amount of change to be given
+ * @param {array} coins - An array holding denominations of coins to be given
+ * @return {number} - The minimum number of coins required to make change for amount S
+ */
+
+function minCoinsDP(S, coins) {
+  // result[i] stores the minimum number of coins required for S=i
+  // result[S] will have the final result
+  const result = new Array(S+1).fill(Number.MAX_VALUE);
+  result[0] = 0;
+  for(let i=1; i <= S; i++) {
+    // go through all coins whose value is less than or equal to i
+    for(let j=0; j < coins.length; j++) {
+      if(coins[j] <= i) {
+        let temp = result[i-coins[j]];
+        if(temp != Number.MAX_VALUE && temp+1 < result[i]) {
+          result[i] = temp + 1;
+        }
+      }
+    }
+  }
+  return result[S];
+}
