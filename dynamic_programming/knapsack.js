@@ -116,3 +116,14 @@ function knapSackDP(capacity, weight, value, n) {
   }
   return arr[n][capacity];
 }
+
+const weights = [2, 3, 5, 7, 10];
+const values  = [15, 5, 6, 11, 4];
+knapSackRec(15, weights, values, 5);
+
+knapSackMemo(9, [2, 3, 5, 7], [16, 5, 9, 6], 4);
+
+const weights2 = [2, 3, 4, 5];
+const values2  = [3, 4, 5, 6];
+knapSackRec(5, weights2, values2, 4);
+knapSackDP(5, weights2, values2, 4);
