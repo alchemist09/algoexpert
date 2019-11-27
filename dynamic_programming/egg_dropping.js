@@ -35,3 +35,47 @@ function eggDropRec(eggs, floors) {
   }
   return minDrops + 1;
 }
+
+/**
+ * Improved Recursive implementation of the egg drop solution
+ * Using memoization to cache values
+ * 
+ * @param {number} eggs The number of eggs to start with
+ * @param {number} floors The number of floors in the buiding we're dropping eggs from
+ * @return {number} Minimum no. of drops needed to find breaking floor in worst case
+ */
+function eggDropMemo(eggs, floors) {
+  const cache = new Array(eggs+1);
+  for(let i=0; i < floors; i++) {
+    cache[i] = new Array(floors+1).fill(Number.MAX_VALUE);
+  }
+
+  function drop(eggs, floors) {
+    // if we only have one egg or we have zero/one floors, return no. of floors
+    if(floors==1 || floors==0 || eggs==1) {
+      return floors;
+    }
+
+    // check if value in cache and return if found
+    if(cache[eggs][floors] != Number.MAX_VALUE) {
+      return cache[eggs][floors];
+    }
+
+    let minDrops = Number.MAX_VALUE;
+
+    for(let currFloor=1; currFloor <= floors; currFloor++) {
+      let temp = Math.max(
+        drop(eggs-1, currFloor-1),
+        drop(eggs, floors-currFloor)
+      )
+
+      if(temp < minDrops) {
+        minDrops = temp;
+        cache[eggs][floors] = minDrops + 1;
+      }
+    }
+  }
+
+  drop(eggs, floors);
+  return cache[eggs][floors];
+}
