@@ -11,7 +11,7 @@
 /**
  * Naive recursive implementation of egg drop solution
  * 
- * @param {eggs} int The number of eggs to start with
+ * @param {number} eggs The number of eggs to start with
  * @param {number} floors The number of floors in the buiding we're dropping eggs from
  * @return {number} Minimum no. of drops needed to find breaking floor in worst case
  */
