@@ -86,3 +86,16 @@ function minCoinsDP(S, coins) {
   }
   return result[S];
 }
+
+const coins = [1, 2, 3];
+const change = 5;
+minCoins(change, coins);
+
+const coins2 = [1, 2, 3];
+const change2 = 5;
+const minCoins2 = minCoinsMemo(change2);
+minCoins2(change2, coins2);
+
+const coins3 = [1, 2, 5, 10, 20, 50];
+const change3 = 11;
+minCoinsDP(change3, coins3);
