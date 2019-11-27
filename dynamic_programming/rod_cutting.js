@@ -78,3 +78,20 @@ function cutRodMemo(values, n) {
   cr(values, n);
   return maxValues[n];
 }
+
+/**
+ * Dynamic Programming Solution
+ * @param {array} values - Prices of various rod lengths. Array index represents length of rod
+ * @param {number} n - The length of the rod in question
+ * @returns {number} - Maximum value that can be derived from cutting a rod of length n
+ */
+function cutRodDP(values, n) {
+  const maxValues = new Array(n+1).fill(Number.MIN_VALUE);
+  maxValues[0] = 0;
+  for(let i=1; i <= n; i++) {
+    for(let j=1; j <= i; j++) {
+      maxValues[i] = Math.max(maxValues[i], values[j] + maxValues[i-j]);
+    }
+  }
+  return maxValues[n];
+}
