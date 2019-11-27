@@ -74,3 +74,45 @@ function knapSackMemo(capacity, weight, value, n) {
   KS(capacity, weight, value, n);
   return arr[n][capacity];
 }
+
+/**
+ * Using Dynamic Programming to build a solution bottom-up
+ * The runtime is O(N^2)
+ * 
+ * @param {number} capacity Maximum capacity of the knapsack
+ * @param {array} weight Array holding weight of each available item
+ * @param {array} value Array holding value of each available item
+ * @param {number} n The number of available items
+ */
+function knapSackDP(capacity, weight, value, n) {
+  const arr = new Array(n+1);
+  for(let i=0; i < arr.length; i++) {
+    arr[i] = new Array(capacity + 1).fill(0)
+  }
+
+  // base case where the capacity of knapsack is zero i.e it can't hold any item so
+  // the maximum value it can carry is zero
+  for(let i=0; i <= n; i++) {
+    arr[i][0] = 0;
+  }
+
+  // base case where we have zero items so no item will go into knapsack, maximum 
+  // value for any capacity will be zero
+  for(let j=0; j <= capacity; j++) {
+    arr[0][j] = 0
+  }
+
+  // i is the item index, and j represents intermediate weights which are subproblems
+  // of the max weight
+  for(let i=1; i <= n; i++) {
+    for(let j=1; j <= capacity; j++) {
+      if(weight[i-1] <= j) {
+        let capLessCurrentItem = j - weight[i-1];
+        arr[i][j] = Math.max(value[i-1] + arr[i-1][capLessCurrentItem], arr[i-1][j]);
+      } else {
+        arr[i][j] = arr[i-1][j];
+      }
+    }
+  }
+  return arr[n][capacity];
+}
