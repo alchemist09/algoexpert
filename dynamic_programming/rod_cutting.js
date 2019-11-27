@@ -37,3 +37,8 @@
 
 */
 
+/**
+ * Array Index Represents Length of Rod
+ */
+const price = [0, 1, 5, 8, 9, 10, 17, 17, 20];
+
