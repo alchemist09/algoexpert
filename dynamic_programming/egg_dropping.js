@@ -131,3 +131,7 @@ function eggDropDP(eggs, floors) {
   
   return cache[eggs][floors];
 }
+
+eggDropRec(2, 10);
+eggDropMemo(2, 50);
+eggDropDP(2, 36);
