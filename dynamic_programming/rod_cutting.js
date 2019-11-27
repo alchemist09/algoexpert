@@ -56,3 +56,25 @@ function cutRod(values, n) {
   }
   return maxValue;
 }
+
+/**
+ * Recursion with Memoization Solution
+ * @param {array} values - Prices of various rod lengths. Array index represents length of rod
+ * @param {number} n - The length of the rod in question
+ * @returns {number} - Maximum value that can be derived from cutting a rod of length n
+ */
+function cutRodMemo(values, n) {
+  const maxValues = new Array(n+1).fill(0);
+  function cr(values, n) {
+    if(maxValues[n] != 0) {
+      return maxValues[n]
+    }
+    maxValues[n] = Number.MIN_VALUE;
+    for(let i=1; i <= n; i++) {
+      maxValues[n] = Math.max(maxValues[n], values[i] + cr(values, n-i));
+    }
+    return maxValues[n];
+  }
+  cr(values, n);
+  return maxValues[n];
+}
